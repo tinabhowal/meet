@@ -8,6 +8,7 @@ export const extractLocations = (events) => {
     return locations;
   };
 
+
   const checkToken = async (accessToken) => {
     const result = await fetch(
       `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -17,6 +18,9 @@ export const extractLocations = (events) => {
   
     return result;
   };
+
+
+
 
   export const getEvents = async () => {
     NProgress.start();
@@ -30,8 +34,8 @@ export const extractLocations = (events) => {
 
   if (token) {
     removeQuery();
-    let accessTokenUrl = "https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/{access_token}";
-    // const url = 'https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/{access_token}' + '/' + token;
+    let accessTokenUrl = "https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
+    // const url = "https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
     const url = `${accessTokenUrl}/${token}`;
     
 
@@ -46,6 +50,8 @@ export const extractLocations = (events) => {
   }
 
 };
+
+
 
   export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');
@@ -67,6 +73,8 @@ export const extractLocations = (events) => {
   return accessToken;
   }
 
+
+
   const removeQuery = () => {
     if (window.history.pushState && window.location.pathname) {
       var newurl =
@@ -81,9 +89,11 @@ export const extractLocations = (events) => {
     }
   };
 
+
+
   const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    let codeUrl = "https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/token/{code}";
+    let codeUrl = "https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/token";
     const { access_token } = await fetch(
       `${codeUrl}/${encodeCode}`
     )
