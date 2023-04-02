@@ -28,6 +28,7 @@ describe('<App /> component', () => {
 });
 
 describe('<App /> integration', () => {
+
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
     const AppEventsState = AppWrapper.state('events');
@@ -68,5 +69,30 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
   
+  test('App passes "numEvents" state as a prop to NumberOfEvents', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumEventsState = AppWrapper.state('numEvents');
+    expect(AppNumEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numEvents).toEqual(AppNumEventsState);
+    AppWrapper.unmount();
+  })
+
+  test('change number of events input value displayed when input changes', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const eventCount = { target : {value : 2} };
+    NumberOfEventsWrapper.find('.num-events').simulate('change', eventCount);
+    expect(AppWrapper.state('numEvents')).toEqual(2);
+  })
+
+  test('render correct number of events when number of events is changed', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const eventCount = { target: { value: 2 } };
+    NumberOfEventsWrapper.find('.num-events').simulate('change', eventCount);
+    expect(AppWrapper.state('numEvents')).toEqual(2);
+    const EventListWrapper = AppWrapper.find(EventList);
+    expect(EventListWrapper.props().numEvents).toEqual(2);
+  })
 });
 
