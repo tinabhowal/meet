@@ -1,6 +1,12 @@
 import { mockData } from './mock-data';
-import axios from 'axios';
 import NProgress from 'nprogress';
+import axios from 'axios';
+// const axios = require('axios');
+
+
+
+
+
 
 export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
@@ -114,3 +120,9 @@ export const extractLocations = (events) => {
   // GET - https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url
   // GET - https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/token/{code}
   // GET - https://fl68ixz9r0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/{access_token}
+
+
+
+
+
+

@@ -5,6 +5,8 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
+import { Container, Row, Col } from 'react-bootstrap';
+
 class App extends Component {
   state = {
     events: [],
@@ -45,9 +47,25 @@ componentWillUnmount(){
   render() {
     return (
       <div className="App">
-        <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents}/>
-        <EventList events={this.state.events} numEvents={this.state.numEvents}/>
-        <NumberOfEvents numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+        <Container>
+          <Row text-center>
+            <Col>
+              <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents}/>
+            </Col>
+          </Row>
+
+          <Row text-center>
+            <Col>
+              <EventList events={this.state.events} numEvents={this.state.numEvents}/>
+            </Col>
+          </Row>   
+
+          <Row text-center>
+            <Col>   
+              <NumberOfEvents numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+            </Col> 
+          </Row>
+        </Container>    
       </div>
     );
   }

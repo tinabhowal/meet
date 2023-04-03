@@ -6,14 +6,14 @@ class NumberOfEvents extends Component {
     } 
 
     handlenumEventsChanged = (event) => {
-        const value = event.target.value;
+        const value = parseInt(event.target.value);
         this.setState({numEvents:value});
         this.props.updateNumEvents(event);
     }
 
     handleKeyDown = (event) => {
       if (event.keyCode === 13) {
-        const value = event.target.value;
+        const value = parseInt(event.target.value);
         this.props.updateNumEvents(event);
         this.setState({
           numEvents: value
