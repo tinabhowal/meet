@@ -25,10 +25,13 @@ updateEvents = (location) => {
 
 updateNumEvents = (event) => {
   const value = event.target.value;
+  getEvents().then((events) => {
   this.setState({
     numEvents: value,
-    events: this.state.events.slice(0, value) // limit to numEvents
+    //events: this.state.events.slice(0, value) // limit to numEvents
+    events: events.slice(0, value) // limit to numEvents  
   });
+});
 }
 
 componentDidMount() {
