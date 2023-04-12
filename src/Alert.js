@@ -1,6 +1,3 @@
-
-
-
 import React, { Component } from 'react';
 
 class Alert extends Component {
@@ -21,7 +18,19 @@ class Alert extends Component {
             transition: "opacity 2.5s ease-in-out"
         };
     }
-
+   
+    componentDidMount() {
+        window.addEventListener("offline", this.handleOffline);
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener("offline", this.handleOffline);
+      }
+    
+      handleOffline = () => {
+        this.color = 'orange';
+        this.setState({ opacity: 1 });
+      }
    
 
     componentDidUpdate(prevProps, prevState) {

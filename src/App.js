@@ -6,14 +6,18 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import { Container, Row, Col } from 'react-bootstrap';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
-    numEvents: 32
+    numEvents: 32,
+    offline: false
   }
 
+
+  
 updateEvents = (location) => {
   getEvents().then((events) => {
     const locationEvents = (location === "all")?events:events.filter((event) => event.location === location);
@@ -41,6 +45,14 @@ componentDidMount() {
     this.setState({ events: events.slice(0, this.state.numEvents), locations: extractLocations(events) });
     }
   });
+
+  // Check for network connection
+  window.addEventListener('offline', () => {
+    this.setState({ offline: true });
+  });
+  window.addEventListener('online', () => {
+    this.setState({ offline: false });
+  });
 }
 
 componentWillUnmount(){
@@ -50,6 +62,7 @@ componentWillUnmount(){
   render() {
     return (
       <div className="App">
+        {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
           <Row text-center>
             <Col>
