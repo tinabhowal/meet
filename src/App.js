@@ -4,16 +4,19 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import { getEvents, extractLocations,  checkToken, getAccessToken  } from './api';
 import { Container, Row, Col } from 'react-bootstrap';
 import { WarningAlert } from './Alert';
+import WelcomeScreen from './WelcomeScreen';
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numEvents: 32,
-    offline: false
+    offline: false,
+    showWelcomeScreen: undefined
+    
   }
 
 
@@ -38,21 +41,33 @@ updateNumEvents = (event) => {
 });
 }
 
-componentDidMount() {
+async componentDidMount() {
+  
+  // Add event listener for 'offline' event
+  window.addEventListener('offline', () => {
+    this.setState({ offline: true });
+  });
+
+  // Add event listener for 'online' event
+  window.addEventListener('online', () => {
+    this.setState({ offline: false });
+  });
+
   this.mounted = true;
+  const accessToken = localStorage.getItem('access_token');
+  const isTokenValid = (await checkToken(accessToken)).error ? false :
+  true;
+  const searchParams = new URLSearchParams(window.location.search);
+  const code = searchParams.get("code");
+  this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+  if ((code || isTokenValid) && this.mounted) {
+
   getEvents().then((events) => {
     if(this.mounted){
     this.setState({ events: events.slice(0, this.state.numEvents), locations: extractLocations(events) });
     }
   });
-
-  // Check for network connection
-  window.addEventListener('offline', () => {
-    this.setState({ offline: true });
-  });
-  window.addEventListener('online', () => {
-    this.setState({ offline: false });
-  });
+ } 
 }
 
 componentWillUnmount(){
@@ -60,6 +75,9 @@ componentWillUnmount(){
 }
 
   render() {
+    console.log('offline:', this.state.offline);
+    if (this.state.showWelcomeScreen === undefined)
+    return <div className="App" />
     return (
       <div className="App">
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
@@ -70,15 +88,22 @@ componentWillUnmount(){
             </Col>
           </Row>
 
-          <Row text-center>
+          <Row>
             <Col>
               <EventList events={this.state.events} numEvents={this.state.numEvents}/>
             </Col>
           </Row>   
 
-          <Row text-center>
+          <Row>
             <Col>   
               <NumberOfEvents numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+            </Col> 
+          </Row>
+
+          <Row>
+            <Col>   
+            <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+getAccessToken={() => { getAccessToken() }} />
             </Col> 
           </Row>
         </Container>    
