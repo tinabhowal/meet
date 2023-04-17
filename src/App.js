@@ -109,7 +109,11 @@ getData = () => {
           <Row>
             <Col className='data-vis-wrapper'>
             <h4>Events in each city</h4>
+            {this.state.events ===0? 
+            <p>Loading...</p>
+             :
             <EventGenre events={this.state.events} />
+            }
              <ResponsiveContainer height={400} >
                 <ScatterChart
                 margin={{
