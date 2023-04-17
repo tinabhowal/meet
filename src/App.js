@@ -121,8 +121,8 @@ getData = () => {
                 }}
                 >
                 <CartesianGrid />
-                <XAxis type="category" dataKey="city" name="city" />
-                <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+                <XAxis type="category" dataKey="city" name="city" label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
+                <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Scatter name="" data={data} fill="#8884d8" />
                 </ScatterChart>
