@@ -109,7 +109,7 @@ getData = () => {
           <Row>
             <Col className='data-vis-wrapper'>
             <h4>Events in each city</h4>
-            {this.state.events ===0? 
+            {this.state.events === 0? 
             <p>Loading...</p>
              :
             <EventGenre events={this.state.events} />
@@ -127,7 +127,11 @@ getData = () => {
                 <Scatter name="" data={data} fill="#8884d8" />
                 </ScatterChart>
               </ResponsiveContainer>
- 
+            </Col>
+          </Row>
+
+          <Row>
+            <Col> 
               <EventList events={this.state.events} numEvents={this.state.numEvents}/>
             </Col>
           </Row>   
