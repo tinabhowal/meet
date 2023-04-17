@@ -8,6 +8,7 @@ import { getEvents, extractLocations,  checkToken, getAccessToken  } from './api
 import { Container, Row, Col } from 'react-bootstrap';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
@@ -97,7 +98,7 @@ getData = () => {
       <div className="App">
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
-          <Row text-center>
+          <Row>
             <Col>
               <h1>Meet App</h1>
               <h4>Choose your nearest city</h4>
@@ -106,8 +107,9 @@ getData = () => {
           </Row>
 
           <Row>
-            <Col>
+            <Col className='data-vis-wrapper'>
             <h4>Events in each city</h4>
+            <EventGenre events={this.state.events} />
              <ResponsiveContainer height={400} >
                 <ScatterChart
                 margin={{
