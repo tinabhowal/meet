@@ -12,10 +12,10 @@ class NumberOfEvents extends Component {
 
     handlenumEventsChanged = (event) => {
       const value = parseInt(event.target.value);
-      if (isNaN(value) || value < 1 || value > 64) {
+      if (isNaN(value) || value < 1 || value > 100) {
         this.setState({
           numEvents: '',
-          errorText: 'Please specify a number between 1-64',
+          errorText: 'Please specify a number between 1-100',
           
         });
       } else {
@@ -32,10 +32,10 @@ class NumberOfEvents extends Component {
     handleKeyDown = (event) => {
       if (event.key === 'Enter') {
         const value = parseInt(event.target.value);
-        if (isNaN(value) || value < 1 || value > 64) {
+        if (isNaN(value) || value < 1 || value > 100) {
           this.setState({
             numEvents: value,
-            errorText: 'Please specify a number between 1-64',
+            errorText: 'Please specify a number between 1-100',
             
           });
         } else {
