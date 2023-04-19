@@ -95,7 +95,7 @@ getData = () => {
     
     const data = this.getData();
     return (
-      <div className="App">
+      <div className="App" style={{padding:'0'}}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
           <Row>

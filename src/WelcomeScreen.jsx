@@ -1,10 +1,15 @@
 import React from "react";
+import boxes from "./boxes.png";
+
 import './WelcomeScreen.css';
 
 function WelcomeScreen(props) {
 return props.showWelcomeScreen ?
 (
 <div className="WelcomeScreen">
+<div className="image">
+    <img src={boxes} alt="background"></img>
+</div>
 <h1>Welcome to the Meet app</h1>
 <h4>
 Log in to see upcoming events around the world for
@@ -27,7 +32,7 @@ class="btn-text"
 >
 <b>Sign in with google</b>
 </button>
-Page 1
+{/* Page 1 */}
 </div>
 </div>
 <a
@@ -41,3 +46,4 @@ Privacy policy
 : null
 }
 export default WelcomeScreen;
+
