@@ -12,8 +12,8 @@ return props.showWelcomeScreen ?
 <div className="image">
     <img src={boxes} alt="background animation"></img>
 </div>
-<h1>Welcome to the Meet app</h1>
-<h4>
+<h1 className="h1">Welcome to the Meet app</h1>
+<h4 className="h4">
 Log in to see upcoming events around the world for
 full-stack
 developers
