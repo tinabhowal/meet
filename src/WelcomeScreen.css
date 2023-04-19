@@ -1,17 +1,25 @@
-body{
-    overflow: hidden;
-}
+
+
+/* .wall{
+  position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    background: white;
+} */
 .WelcomeScreen {
+    
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     background: white;
-    background-image:url(./Desktop\ -\ 3.png);
+    background-image:url(./Desktop\ -\ 5.png);
     background-size: cover;
+    overflow: hidden;
     }
 
-    
+  
 
     h1{
         color: aliceblue;
@@ -46,9 +54,9 @@ body{
         position: absolute;
         width:500px;
         height:700px;
-        left: 800px;
-        top: -35px;
-        
+        left: 850px;
+        top: -33px;
+        filter: drop-shadow(0px 8px 9px rgba(244, 242, 242, 0.463));
         animation: rotate 2s forwards;
       }
 
@@ -88,8 +96,10 @@ body{
     height: 42px;
     margin: 1rem;
     background-color: #4285f4;
-    border-radius: 2px;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7); */
+  
+    filter: drop-shadow(0px 8px 9px rgba(255, 254, 254, 0.406));
     }
 
     .google-btn:hover {
@@ -107,7 +117,7 @@ body{
         margin-bottom: 1px;
         width: 40px;
         height: 40px;
-        border-radius: 2px;
+        border-radius: 4px;
         background-color: #fff;
         }
 
@@ -137,5 +147,64 @@ body{
 
     a{
         font-size: 12px;
-
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
+
+    
+
+     .man {
+      position: fixed;
+      top: 50%;
+      left: 15%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .slide-in-man {
+      width: 250px;
+      height: 250px;
+      position: absolute;
+      overflow: hidden;
+      filter: drop-shadow(0px 8px 9px rgba(0, 0, 0, 0.25));
+      animation: slide-in-man 2s ease forwards;
+    }
+    
+    @keyframes slide-in-man {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .man {
+        top: 65%;
+        left: 1%;
+        transform: translate(-50%, -70%);
+      }
+
+      .slide-in-man {
+        width: 200px;
+        height: 200px;
+      }
+
+      .image img {
+        width: 280px;
+        height: 400px;
+        left: 60%;
+        top: 8%;
+        transform: translateX(-50%);
+      }
+    }
+    
+    @media screen and (max-width: 390px) {
+      .man {
+        top: 50%;
+        left: 0.9%;
+        transform: translate(-50%, -70%);
+      }
+    }
+    

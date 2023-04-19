@@ -1,4 +1,5 @@
 import React from "react";
+import man from "./man.png";
 import boxes from "./boxes.png";
 
 import './WelcomeScreen.css';
@@ -6,9 +7,10 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
 return props.showWelcomeScreen ?
 (
-<div className="WelcomeScreen">
+<div className="wall">
+<div className="WelcomeScreen"   id="background-image" >
 <div className="image">
-    <img src={boxes} alt="background"></img>
+    <img src={boxes} alt="background animation"></img>
 </div>
 <h1>Welcome to the Meet app</h1>
 <h4>
@@ -41,6 +43,10 @@ rel="nofollow noopener"
 >
 Privacy policy
 </a>
+</div>
+<div class="man">
+  <img class="slide-in-man fixed" src={man} alt="background animation"></img>
+</div>
 </div>
 )
 : null
