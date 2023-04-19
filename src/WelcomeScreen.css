@@ -1,12 +1,4 @@
 
-
-/* .wall{
-  position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    top: 0;
-    background: white;
-} */
 .WelcomeScreen {
     
     position: fixed;
@@ -16,6 +8,7 @@
     background: white;
     background-image:url(./Desktop\ -\ 5.png);
     background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
     }
 
@@ -25,6 +18,7 @@
         color: aliceblue;
         margin-top: 8rem;
         margin-bottom: 1rem;
+        font-size: 2rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         animation: slide-in 2s forwards;
     }
@@ -52,12 +46,18 @@
 
       .image img {
         position: absolute;
-        width:500px;
-        height:700px;
-        left: 850px;
-        top: -33px;
+        /* width:500px;
+        height:700px; */
+        left: 1050px;
+        top: 15px;
         filter: drop-shadow(0px 8px 9px rgba(244, 242, 242, 0.463));
         animation: rotate 2s forwards;
+        
+        height: 120px;
+        width: 140px;
+      
+        
+
       }
 
       @keyframes rotate {
@@ -154,57 +154,72 @@
 
      .man {
       position: fixed;
-      top: 50%;
-      left: 15%;
-      transform: translate(-50%, -50%);
+      top: 70%;
+      left: 5%;
+      /* transform: translate(-50%, -50%); */
     }
     
     .slide-in-man {
-      width: 250px;
-      height: 250px;
+      /* width: 250px;
+      height: 50px; */
       position: absolute;
       overflow: hidden;
       filter: drop-shadow(0px 8px 9px rgba(0, 0, 0, 0.25));
-      animation: slide-in-man 2s ease forwards;
+      animation: flip-man 2s ease forwards;
+      width: 200px;
+      height: 150px;
+      /* left: 69px;
+      top: 609px; */
     }
     
-    @keyframes slide-in-man {
+    @keyframes flip-man {
       0% {
         opacity: 0;
-        transform: translateX(-100%);
+        transform: perspective(400px) rotateY(-100deg);
       }
+      
       100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: perspective(400px) rotateY(0);
       }
     }
     
     @media screen and (max-width: 768px) {
       .man {
-        top: 65%;
+        top: 70%;
         left: 1%;
         transform: translate(-50%, -70%);
       }
 
       .slide-in-man {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
       }
 
       .image img {
-        width: 280px;
-        height: 400px;
-        left: 60%;
-        top: 8%;
+        width: 100px;
+        height: 90px;
+        left: 80%;
         transform: translateX(-50%);
       }
     }
     
-    @media screen and (max-width: 390px) {
+    @media only screen and (max-width: 390px) and (max-height: 844px) {
       .man {
-        top: 50%;
-        left: 0.9%;
+        top: 70%;
+        left: 1%;
         transform: translate(-50%, -70%);
       }
+
+      .slide-in-man {
+        width: 150px;
+        height: 150px;
+      }
+
+      .image img {
+        width: 100px;
+        height: 90px;
+        left: 70%;
+        transform: translateX(-50%);
+      } 
     }
-    
