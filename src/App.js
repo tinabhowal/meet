@@ -95,7 +95,7 @@ getData = () => {
     
     const data = this.getData();
     return (
-      <div className="App" style={{padding:'0'}}>
+      <div className="App"  style={{ padding: 0, margin: 0 }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
           <Row>
@@ -141,14 +141,12 @@ getData = () => {
               <NumberOfEvents numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
             </Col> 
           </Row>
-
-          <Row>
-            <Col>   
+          </Container>
+          
+            <div style={{padding:'0', margin:'0'}}>
             <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={() => { getAccessToken() }} />
-            </Col> 
-          </Row>
-        </Container>    
+            getAccessToken={() => { getAccessToken() }}  />
+            </div>
       </div>
     );
   }

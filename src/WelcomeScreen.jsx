@@ -7,8 +7,8 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
 return props.showWelcomeScreen ?
 (
-<div className="wall">
-<div className="WelcomeScreen"   id="background-image" >
+<div>
+<div className="WelcomeScreen"   id="background-image">
 <div className="image">
     <img src={boxes} alt="background animation"></img>
 </div>
