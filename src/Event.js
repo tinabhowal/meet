@@ -23,12 +23,21 @@ class Event extends Component {
       const isGenre = genres.some(genre => event.summary.includes(genre));
       
       const getGenreImage = (genre) => {
+        console.log(genre);
         switch(genre) {
+          // case 'React':
+          //   return <img src={react} alt="React" width="50" />;
+          // case 'JavaScript':
+          //   return <img src={javascript} alt="JavaScript" width="50" />;
           case 'React':
-            return <img src={react} alt="React" width="50" />;
+            const reactImage = <img src={react} alt="React" width="50" />;
+            console.log(reactImage);
+            return reactImage;
           case 'JavaScript':
-            return <img src={javascript} alt="JavaScript" width="50" />;
-          case 'Node':
+            const javascriptImage = <img src={javascript} alt="JavaScript" width="50" />;
+            console.log(javascriptImage);
+            return javascriptImage;
+            case 'Node':
             return <img src={nodejs} alt="Node" width="50" />;
           case 'jQuery':
             return <img src={jquery} alt="jQuery" width="50" />;
@@ -38,6 +47,8 @@ class Event extends Component {
             return null;
         }
       }
+      
+      
       
      
     return (
