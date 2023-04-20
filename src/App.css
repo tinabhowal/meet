@@ -76,7 +76,7 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-/* .event {
+.event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
@@ -93,7 +93,7 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-} */
+}
 
 .name {
   font-size: 18px;
