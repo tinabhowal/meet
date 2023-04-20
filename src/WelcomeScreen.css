@@ -42,23 +42,17 @@
       
       .image {
         position: relative;
+        top:15px;
+       
       }
 
       .image img {
         position: absolute;
-        /* width:500px;
-        height:700px; */
-        /* left: 1050px; */
-        right: 40px;
-        top: 15px;
+        right: 4%;
         filter: drop-shadow(0px 8px 9px rgba(244, 242, 242, 0.463));
         animation: rotate 2s forwards;
-        
         height: 120px;
         width: 140px;
-      
-        
-
       }
 
       @keyframes rotate {
@@ -155,8 +149,8 @@
 
      .man {
       position: fixed;
-      top: 70%;
-      left: 5%;
+      top: 65%;
+      left: 4%;
       /* transform: translate(-50%, -50%); */
     }
     
@@ -166,7 +160,7 @@
       filter: drop-shadow(0px 8px 9px rgba(0, 0, 0, 0.25));
       animation: flip-man 2s ease forwards;
       width: 200px;
-      height: 150px;
+      height: 180px;
     }
     
     @keyframes flip-man {
@@ -184,7 +178,7 @@
     @media screen and (max-width: 768px) {
       .man {
         top: 70%;
-        left: 1%;
+        left: 4%;
         transform: translate(-50%, -70%);
       }
 
@@ -204,7 +198,7 @@
     @media only screen and (max-width: 390px) and (max-height: 844px) {
       .man {
         top: 70%;
-        left: 1%;
+        left: 4%;
         transform: translate(-50%, -70%);
       }
 
@@ -213,11 +207,16 @@
         height: 150px;
       }
 
+      .image{
+        right:8%;
+      }
+
       .image img {
         width: 100px;
         height: 90px;
-        left: 65%;
-        transform: translateX(-50%);
+        /* left: 65%; */
+        /* right:20%; */
+        /* transform: translateX(-50%); */
       } 
 
       .h1{
@@ -226,11 +225,4 @@
 
     }
 
-    /* @media screen and (min-width: 768px) {
-      .image img {
-        width: 100px;
-        height: 90px;
-        left: 65%;
-        transform: translateX(-50%);
-      } 
-    } */
+   
