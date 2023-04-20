@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import { Container, Row, Col, CardDeck} from 'react-bootstrap';
+import { Container, Row, Col, Card} from 'react-bootstrap';
 
 class EventList extends Component {
   render() {
@@ -8,19 +8,19 @@ class EventList extends Component {
     const displayedEvents = events.slice(0, numEvents);
     return (
       <Container>
-        <Row>
-          <Col>
-           <CardDeck>
+        <Row xs={1} md={2} lg={3} className="g-4">
+          
               {/* <ul className="EventList text-center"> */}
-                  {displayedEvents.map(event => 
-                      // <li key={event.id} >
-                          <Event key={event.id} event={event} numEvents={numEvents}/>
-                      // </li>
-                  )}
-              {/* </ul> */}
-              </CardDeck>
-          </Col>
-        </Row>
+                  {displayedEvents.map((event) => (
+                      <Col key={event.id}>
+                        <Card>
+                         <Card.Body>
+                           <Event  event={event} numEvents={numEvents}/>
+                         </Card.Body>
+                        </Card>
+                      </Col>  
+                  ))}
+            </Row>
       </Container>      
     );
   }
