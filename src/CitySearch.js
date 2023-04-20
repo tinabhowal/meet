@@ -8,29 +8,19 @@ class CitySearch extends Component {
         showSuggestions: undefined,
         infoText: ''
       }
-    
-    //   handleInputChanged = (event) => {
-    //     const value = event.target.value;
-    //     this.setState({ query: value });
-    //   }
-  
-    // handleInputChanged = (event) => {
-    //     const value = event.target.value;
-    //     const suggestions = this.props.locations.filter((location) => {
-    //       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-    //     });
-    //     if (suggestions.length === 0) {
-    //     this.setState({
-    //       query: value,
-    //       infoText: 'We cannot find the city you are looking for. Check for typos and try again or try another city.',
-    //     });
-    //   } else {
-    //     return this.setState({
-    //       query: value,
-    //       suggestions,
-    //       infoText: ''
-    //     });
-    //   }
+    componentDidMount() {
+      window.addEventListener('click',this.handleClickOutside);
+    }
+
+    componentWillUnmount(){
+      window.removeEventListener('click',this.handleClickOutside);
+    }
+
+    handleClickOutside = (event) => {
+      if (this.state.showSuggestions && !this.node.contains(event.target)) {
+        this.setState({showSuggestions: false});
+      }
+    }
 
     handleInputChanged = (event) => {
       const value = event.target.value;
@@ -65,7 +55,7 @@ class CitySearch extends Component {
 
   render() {
     return (
-      <div className="CitySearch">
+      <div className="CitySearch"  ref={node => this.node = node}>
         <InfoAlert text={this.state.infoText} />
         <input
             type="text"
