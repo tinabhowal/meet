@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, CardColumns} from 'react-bootstrap';
  
 class EventList extends Component {
   render() {
@@ -10,13 +10,15 @@ class EventList extends Component {
       <Container>
         <Row>
           <Col>
-              <ul className="EventList text-center">
+           <CardColumns>
+              {/* <ul className="EventList text-center"> */}
                   {displayedEvents.map(event => 
-                      <li key={event.id} >
-                          <Event event={event} numEvents={numEvents}/>
-                      </li>
+                      // <li key={event.id} >
+                          <Event key={event.id} event={event} numEvents={numEvents}/>
+                      // </li>
                   )}
-              </ul>
+              {/* </ul> */}
+              </CardColumns>
           </Col>
         </Row>
       </Container>      
