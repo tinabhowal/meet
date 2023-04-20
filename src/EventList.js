@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import { Container, Row, Col, CardColumns} from 'react-bootstrap';
- 
+import { Container, Row, Col, CardDeck} from 'react-bootstrap';
+
 class EventList extends Component {
   render() {
     const { events, numEvents } = this.props;
@@ -10,7 +10,7 @@ class EventList extends Component {
       <Container>
         <Row>
           <Col>
-           <CardColumns>
+           <CardDeck>
               {/* <ul className="EventList text-center"> */}
                   {displayedEvents.map(event => 
                       // <li key={event.id} >
@@ -18,7 +18,7 @@ class EventList extends Component {
                       // </li>
                   )}
               {/* </ul> */}
-              </CardColumns>
+              </CardDeck>
           </Col>
         </Row>
       </Container>      
