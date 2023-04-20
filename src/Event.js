@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, ListGroup } from 'react-bootstrap';
+import { Card, ListGroup,Button } from 'react-bootstrap';
 
 class Event extends Component {
   state = {
@@ -37,9 +37,9 @@ class Event extends Component {
               <ListGroup.Item><strong>Location:</strong> {event.location}</ListGroup.Item>
             </ListGroup>
             <Card.Footer>
-              <button className="btn btn-primary" onClick={this.handleShowDetailsClick}>
+              <Button className="btn btn-primary" onClick={this.handleShowDetailsClick}>
                 {this.state.showDetails? "Hide details" : "Show Details"}
-              </button>
+              </Button>
             </Card.Footer>
             {this.state.showDetails && (
               <ListGroup variant="flush">
