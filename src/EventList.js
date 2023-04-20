@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import { Container, Row, Col } from 'react-bootstrap'; 
+import { Container, Row, Col} from 'react-bootstrap';
+ 
 class EventList extends Component {
   render() {
     const { events, numEvents } = this.props;
