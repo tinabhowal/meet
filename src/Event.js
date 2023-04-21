@@ -41,9 +41,11 @@ class Event extends Component {
       // }
         
       const getGenreImage = (genre) => {
+        console.log('getGenreImage called with genre:', genre);
         switch(genre) {
           case 'React':
             const ReactIcon = require('./react.svg').default;
+            console.log('reacticon:', ReactIcon);
             return <img src={ReactIcon} alt="React" width="50" />;
           case 'JavaScript':
             const JavaScriptIcon = require('./javascript.svg').default;
