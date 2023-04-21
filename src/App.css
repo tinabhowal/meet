@@ -68,11 +68,12 @@ input[type="number"] {
 
 .city{
   width: 0;
+  height: 0;
   padding: 0;
   border: none;
   outline: none;
   transition: width 0.3s ease-in-out;
-  display: none;
+  
 }
 
 .city.show-suggestions {

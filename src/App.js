@@ -171,7 +171,7 @@ toggleChartType = () => {
 
           <Row>
             <Col>   
-              <NumberOfEvents  data-aos="fade-up" numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+              <NumberOfEvents   numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
             </Col> 
           </Row>
           </Container>
