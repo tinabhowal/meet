@@ -25,9 +25,9 @@ class Event extends Component {
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
         {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
-        {event.summary.toLowerCase().includes('Javascript') && <img src={javascript} alt="javascript icon"></img>}
-        {event.summary.toLowerCase().includes('node.js') && <img src={nodejs} alt="node.js icon"></img>}
-        {event.summary.toLowerCase().includes('angularjs' || 'angular') && <img src={angularjs} alt="angular js icon"></img>}
+        {event.summary.toLowerCase().includes('JavaScript') && <img src={javascript} alt="javascript icon"></img>}
+        {event.summary.toLowerCase().match(/node(js)?/) && <img src={nodejs} alt="node.js icon"></img>}
+        {event.summary.toLowerCase().match(/angular(js)?/) && <img src={angularjs} alt="angular js icon"></img>}
         {event.summary.toLowerCase().includes('jquery') && <img src={jquery} alt="j query icon"></img>}
           <Card.Text>
             <strong>Start:</strong> {event.start.dateTime}
