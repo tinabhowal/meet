@@ -138,43 +138,44 @@ class Event extends Component {
   };
   
   // updated getGenreImage function to use the imported images directly
-  getGenreImage = (genre) => {
-    switch(genre) {
-      case 'React':
-        return <img src={react} onLoad={() => console.log('Image loaded successfully!')} onError={() => console.log('Error loading image!')} alt="React" width="50" />;
-      case 'JavaScript':
-        return <img src={javascript} alt="JavaScript" width="50" />;
-      case 'Node':
-        return <img src={nodejs} alt="Node" width="50" />;
-      case 'jQuery':
-        return <img src={jquery} alt="jQuery" width="50" />;
-      case 'AngularJS':
-        return <img src={angularjs} alt="AngularJS" width="50" />;
-      default:
-        return null;
-    }
-  }
+  // getGenreImage = (genre) => {
+  //   switch(genre) {
+  //     case 'React':
+  //       return <img src={react} onLoad={() => console.log('Image loaded successfully!')} onError={() => console.log('Error loading image!')} alt="React" width="50" />;
+  //     case 'JavaScript':
+  //       return <img src={javascript} alt="JavaScript" width="50" />;
+  //     case 'Node':
+  //       return <img src={nodejs} alt="Node" width="50" />;
+  //     case 'jQuery':
+  //       return <img src={jquery} alt="jQuery" width="50" />;
+  //     case 'AngularJS':
+  //       return <img src={angularjs} alt="AngularJS" width="50" />;
+  //     default:
+  //       return null;
+  //   }
+  // }
         
   render() {
     const {event} = this.props;
-    const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
-    const isGenre = genres.some(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
-    console.log('genre', isGenre);
+    // const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
+    // const isGenre = genres.some(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
+    // console.log('genre', isGenre);
     
-    let genreImage;
-    if (isGenre) {
-      const genreName = genres.find(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
-      const genreImage = this.getGenreImage(genreName);
-      console.log('genreImage', genreImage);
-    }
+    // let genreImage;
+    // if (isGenre) {
+    //   const genreName = genres.find(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
+    //   const genreImage = this.getGenreImage(genreName);
+    //   console.log('genreImage', genreImage);
+   
     return (
       // only render the component if images are ready
-      this.state.imagesLoaded &&
+      this.state.imagesLoaded && 
       <Card key={event.id} className="my-3">
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
           {/* {isGenre && this.getGenreImage(event.summary)} */}
-          {isGenre && genreImage}
+          {/* {isGenre && genreImage} */}
+          {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
           <Card.Text>
             <strong>Start:</strong> {event.start.dateTime}
             <br />
@@ -198,6 +199,8 @@ class Event extends Component {
         </Card.Body>
       </Card>
     );
+    
   }
+
 }
 export default Event;
