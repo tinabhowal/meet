@@ -141,7 +141,7 @@ class Event extends Component {
   getGenreImage = (genre) => {
     switch(genre) {
       case 'React':
-        return <img src={react} alt="React" width="50" />;
+        return <img src={react} onLoad={() => console.log('Image loaded successfully!')} onError={() => console.log('Error loading image!')} alt="React" width="50" />;
       case 'JavaScript':
         return <img src={javascript} alt="JavaScript" width="50" />;
       case 'Node':
