@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Card,Button } from 'react-bootstrap';
-// import angularjs from './angularjs.png';
-// import javascript from './javascript.png';
-// import nodejs from './nodejs.png';
-// import jquery from './jquery.png';
+import angularjs from './angularjs.png';
+import javascript from './javascript.png';
+import nodejs from './nodejs.png';
+import jquery from './jquery.png';
 import react from './react.png';
 
 
@@ -25,6 +25,10 @@ class Event extends Component {
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
         {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
+        {event.summary.includes('Javascript') && <img src={javascript} alt="javascript icon"></img>}
+        {event.summary.toLowercase().includes('node.js') && <img src={nodejs} alt="node.js icon"></img>}
+        {event.summary.toLowercase().includes('angularjs') && <img src={angularjs} alt="angular js icon"></img>}
+        {event.summary.toLowercase().includes('jquery') && <img src={jquery} alt="j query icon"></img>}
           <Card.Text>
             <strong>Start:</strong> {event.start.dateTime}
             <br />
