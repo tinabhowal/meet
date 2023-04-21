@@ -157,7 +157,7 @@ toggleChartType = () => {
 
           <Row>
            <Col>
-             <Button className='chart-button' data-aos="fade-up" onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
+             <Button onClick={this.toggleChartType} style={{marginBottom:"1rem"}}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"} </Button>
            </Col>
           </Row>
 
