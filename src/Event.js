@@ -175,7 +175,7 @@ class Event extends Component {
         <Card.Body>
           {/* {isGenre && this.getGenreImage(event.summary)} */}
           {/* {isGenre && genreImage} */}
-          {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
+          {event.summary.includes('React') && <img src={react} alt="react icon"></img>} 
           <Card.Text>
             <strong>Start:</strong> {event.start.dateTime}
             <br />
