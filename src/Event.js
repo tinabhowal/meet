@@ -27,7 +27,7 @@ class Event extends Component {
 
     return (
      <div>
-    <Card key={event.id} className="my-3">
+    <Card key={event.id} className="my-3" style={{height:"275px"}}>
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
         {event.summary.includes('React') && <img src={react} alt="react icon"></img>}

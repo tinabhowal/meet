@@ -115,7 +115,7 @@ toggleChartType = () => {
       <div className="App"  style={{ padding: "0", margin: "0" }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
-          <Row data-aos="fade-up">
+          <Row>
             <Col>
               <h1>Meet App</h1>
               {/* <h4>Choose your nearest city</h4> */}
@@ -123,13 +123,13 @@ toggleChartType = () => {
             </Col>
           </Row>
 
-          <Row data-aos="fade-up">
+          <Row>
             <Col style={{textAlign:"center"}}>
               <h6>Events in each city</h6>
             </Col>
           </Row>
 
-          <Row data-aos="fade-up">  
+          <Row>  
             <Col className='data-vis-wrapper'>
               {this.state.events === 0? 
               <p>Loading...</p>
@@ -155,9 +155,9 @@ toggleChartType = () => {
             </Col>
           </Row>
 
-          <Row data-aos="fade-up">
+          <Row>
            <Col>
-             <Button data-aos="fade-up" onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
+             <Button className='chart-button' data-aos="fade-up" onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
            </Col>
           </Row>
 
@@ -169,7 +169,7 @@ toggleChartType = () => {
             </Col>
           </Row>   
 
-          <Row data-aos="fade-up">
+          <Row>
             <Col>   
               <NumberOfEvents  data-aos="fade-up" numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
             </Col> 

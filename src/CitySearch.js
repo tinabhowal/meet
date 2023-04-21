@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
+import search from './search.png'
 
 class CitySearch extends Component {
     state = {
@@ -53,19 +54,32 @@ class CitySearch extends Component {
         this.props.updateEvents(suggestion);
       }
 
+      handleImageClicked = () => {
+        this.setState({ showSuggestions: true });
+      }
+
   render() {
     return (
       <div className="CitySearch"  ref={node => this.node = node}>
         <InfoAlert text={this.state.infoText} />
+        <div className='search-container'>
+        <img
+           src={search}
+           alt="Search"
+           className="search-icon"
+           onClick={this.handleImageClicked}
+        />
         <input
             type="text"
-            className="city"
+            // className="city"
+            className={`city ${this.state.showSuggestions ? 'show-suggestions' : ''}`}
             value={this.state.query}
-            placeholder='search events by city'
+            placeholder='Search events by city'
             onChange={this.handleInputChanged}
             onFocus={() => { this.setState({ showSuggestions: true }) }}
             style={{ textAlign:"center"}}
         />
+        </div>
       <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
       {this.state.suggestions.map((suggestion) => (
       <li key={suggestion}

@@ -49,8 +49,35 @@ input[type="number"] {
 
 
 
-.city {
+/* .city {
   width: 250px;
+  animation: fade-in 2s forwards;
+} */
+
+.search-container{
+  position: relative;
+}
+
+.search-icon{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.city{
+  width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  transition: width 0.3s ease-in-out;
+}
+
+.city.show-suggestions {
+  width: 200px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
 }
 
 .CitySearch {
@@ -157,6 +184,15 @@ input[type="number"] {
 }
 .recharts-surface {
   overflow: visible;
+  animation: fade-in 2s forwards;
+}
+
+.recharts-legend-wrapper{
+  animation: fade-in 2s forwards;
+}
+
+.chart-button{
+  animation: fade-in 2s forwards;
 }
 
 .login-button {
@@ -232,13 +268,22 @@ h1{
   margin-bottom: 1rem;
   font-size: 4rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
- 
+  animation: fade-in 2s forwards;
 }
 
 h6{
   color: #0D6EFD;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
-  
+  animation: fade-in 2s forwards;
 }
 
-
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
+    
+  }
+}
