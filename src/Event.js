@@ -113,7 +113,7 @@ class Event extends Component {
 
   // new function to preload images
   preloadImages = () => {
-    const images = [angularjs, javascript, nodejs, jquery, react];
+    const images = [{angularjs}, {javascript}, {nodejs}, {jquery}, {react}];
     const promises = [];
     images.forEach(image => {
       promises.push(
