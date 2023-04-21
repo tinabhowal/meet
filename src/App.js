@@ -137,7 +137,7 @@ toggleChartType = () => {
               this.state.chartType === "EventGenre"?
               <EventGenre events={this.state.events} />
               :
-              <ResponsiveContainer width={800} >
+              <ResponsiveContainer height={400} >
                 <ScatterChart
                 margin={{
                   top: 20, right: 20, bottom: 20, left: 20,
