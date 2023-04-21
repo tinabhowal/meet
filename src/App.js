@@ -176,10 +176,10 @@ toggleChartType = () => {
           </Row>
           </Container>
           
-            {/* <div style={{padding:'0', margin:'0'}}>
+            <div style={{padding:'0', margin:'0'}}>
             <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => { getAccessToken() }}  />
-            </div> */}
+            </div>
       </div>
     );
   }
