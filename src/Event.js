@@ -160,11 +160,12 @@ class Event extends Component {
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
     const isGenre = genres.some(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
     console.log('genre', isGenre);
-
+    
+    let genreImage;
     if (isGenre) {
       const genreName = genres.find(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
       const genreImage = this.getGenreImage(genreName);
-      console.log(genreImage);
+      console.log('genreImage', genreImage);
     }
     return (
       // only render the component if images are ready
@@ -172,7 +173,8 @@ class Event extends Component {
       <Card key={event.id} className="my-3">
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
-          {isGenre && this.getGenreImage(event.summary)}
+          {/* {isGenre && this.getGenreImage(event.summary)} */}
+          {isGenre && genreImage}
           <Card.Text>
             <strong>Start:</strong> {event.start.dateTime}
             <br />
