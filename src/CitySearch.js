@@ -64,6 +64,7 @@ class CitySearch extends Component {
             placeholder='search events by city'
             onChange={this.handleInputChanged}
             onFocus={() => { this.setState({ showSuggestions: true }) }}
+            style={{ textAlign:"center"}}
         />
       <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
       {this.state.suggestions.map((suggestion) => (

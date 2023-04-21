@@ -7,6 +7,8 @@ import jquery from './jquery.png';
 import react from './react.png';
 
 
+
+
 class Event extends Component {
   state = {
     showDetails: false,
@@ -15,12 +17,16 @@ class Event extends Component {
   handleShowDetailsClick = () => {
     this.setState({ showDetails: !this.state.showDetails });
   };
+
+  
+  
   
 
   render() {
     const {event} = this.props;
 
     return (
+     <div>
     <Card key={event.id} className="my-3">
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
@@ -51,6 +57,7 @@ class Event extends Component {
             )}
             </Card.Body>
           </Card>
+          </div> 
     );
   }
 }

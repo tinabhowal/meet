@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './nprogress.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
@@ -49,6 +51,12 @@ updateNumEvents = (event) => {
 async componentDidMount() {
   
   // Add event listener for 'offline' event
+  AOS.init({
+    duration: 1200,
+    easing: 'ease-in-out',
+    once: false
+  });
+
   window.addEventListener('offline', () => {
     this.setState({ offline: true });
   });
@@ -97,29 +105,31 @@ toggleChartType = () => {
   render() {
     console.log('offline:', this.state.offline);
     if (this.state.showWelcomeScreen === undefined)
-    return <div className="App" />
+    return <div className="App" style={{ padding: "0", margin: "0" }}/>
     
     const data = this.getData();
+
+    
     
     return (
-      <div className="App"  style={{ padding: 0, margin: 0 }}>
+      <div className="App"  style={{ padding: "0", margin: "0" }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container>
-          <Row>
+          <Row data-aos="fade-up">
             <Col>
               <h1>Meet App</h1>
-              <h4>Choose your nearest city</h4>
-              <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents}/>
+              {/* <h4>Choose your nearest city</h4> */}
+              <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents} />
             </Col>
           </Row>
 
-          <Row>
+          <Row data-aos="fade-up">
             <Col style={{textAlign:"center"}}>
-              <h4>Events in each city</h4>
+              <h6>Events in each city</h6>
             </Col>
           </Row>
 
-          <Row>  
+          <Row data-aos="fade-up">  
             <Col className='data-vis-wrapper'>
               {this.state.events === 0? 
               <p>Loading...</p>
@@ -132,6 +142,7 @@ toggleChartType = () => {
                 margin={{
                   top: 20, right: 20, bottom: 20, left: 20,
                 }}
+                
                 >
                 <CartesianGrid />
                 <XAxis type="category" dataKey="city" name="city" label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
@@ -144,47 +155,31 @@ toggleChartType = () => {
             </Col>
           </Row>
 
-          <Row>
+          <Row data-aos="fade-up">
            <Col>
-             <Button onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
+             <Button data-aos="fade-up" onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
            </Col>
           </Row>
 
-          {/* <Row>
-            <Col className='data-vis-wrapper'>
-             <ResponsiveContainer height={400} >
-                <ScatterChart
-                margin={{
-                  top: 20, right: 20, bottom: 20, left: 20,
-                }}
-                >
-                <CartesianGrid />
-                <XAxis type="category" dataKey="city" name="city" label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
-                <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="" data={data} fill="#8884d8" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </Col>
-          </Row> */}
+          
 
-          <Row>
+          <Row data-aos="fade-up">
             <Col> 
               <EventList events={this.state.events} numEvents={this.state.numEvents}/>
             </Col>
           </Row>   
 
-          <Row>
+          <Row data-aos="fade-up">
             <Col>   
-              <NumberOfEvents numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+              <NumberOfEvents  data-aos="fade-up" numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
             </Col> 
           </Row>
           </Container>
           
-            <div style={{padding:'0', margin:'0'}}>
+            {/* <div style={{padding:'0', margin:'0'}}>
             <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => { getAccessToken() }}  />
-            </div>
+            </div> */}
       </div>
     );
   }
