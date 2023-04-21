@@ -99,11 +99,11 @@
 
 import React, { Component } from "react";
 import { Card,Button } from 'react-bootstrap';
-import angularjs from './angularjs.svg';
-import javascript from './javascript.svg';
-import nodejs from './nodejs.svg';
-import jquery from './jquery.svg';
-import react from './react.svg';
+import angularjs from './angularjs.png';
+import javascript from './javascript.png';
+import nodejs from './nodejs.png';
+import jquery from './jquery.png';
+import react from './react.png';
 
 class Event extends Component {
   state = {
