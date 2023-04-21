@@ -158,8 +158,14 @@ class Event extends Component {
   render() {
     const {event} = this.props;
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
-    const isGenre = genres.some(genre => event.summary.includes(genre));
+    const isGenre = genres.some(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
+    console.log('genre', isGenre);
 
+    if (isGenre) {
+      const genreName = genres.find(genre => event.summary.toLowerCase().includes(genre.toLowerCase()));
+      const genreImage = this.getGenreImage(genreName);
+      console.log(genreImage);
+    }
     return (
       // only render the component if images are ready
       this.state.imagesLoaded &&
