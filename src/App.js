@@ -114,7 +114,7 @@ toggleChartType = () => {
           </Row>
 
           <Row>
-            <Col className='data-vis-wrapper'>
+            <Col style={{textAlign:"center"}}>
               <h4>Events in each city</h4>
             </Col>
           </Row>
@@ -127,7 +127,7 @@ toggleChartType = () => {
               this.state.chartType === "EventGenre"?
               <EventGenre events={this.state.events} />
               :
-              <ResponsiveContainer height={400} >
+              <ResponsiveContainer width={800} >
                 <ScatterChart
                 margin={{
                   top: 20, right: 20, bottom: 20, left: 20,
@@ -141,8 +141,13 @@ toggleChartType = () => {
                 </ScatterChart>
               </ResponsiveContainer>
               }
-              <Button onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
             </Col>
+          </Row>
+
+          <Row>
+           <Col>
+             <Button onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
+           </Col>
           </Row>
 
           {/* <Row>
