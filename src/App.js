@@ -5,7 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations,  checkToken, getAccessToken  } from './api';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import EventGenre from './EventGenre';
@@ -19,7 +19,8 @@ class App extends Component {
     locations: [],
     numEvents: 32,
     offline: false,
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined,
+    chartType: "EventGenre"
     
   }
 
@@ -88,12 +89,18 @@ getData = () => {
   return data;
 };
 
+toggleChartType = () => {
+  const chartType = this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre";
+  this.setState({chartType});
+}
+
   render() {
     console.log('offline:', this.state.offline);
     if (this.state.showWelcomeScreen === undefined)
     return <div className="App" />
     
     const data = this.getData();
+    
     return (
       <div className="App"  style={{ padding: 0, margin: 0 }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
@@ -108,12 +115,38 @@ getData = () => {
 
           <Row>
             <Col className='data-vis-wrapper'>
-            <h4>Events in each city</h4>
-            {this.state.events === 0? 
-            <p>Loading...</p>
-             :
-            <EventGenre events={this.state.events} />
-            }
+              <h4>Events in each city</h4>
+            </Col>
+          </Row>
+
+          <Row>  
+            <Col className='data-vis-wrapper'>
+              {this.state.events === 0? 
+              <p>Loading...</p>
+              :
+              this.state.chartType === "EventGenre"?
+              <EventGenre events={this.state.events} />
+              :
+              <ResponsiveContainer height={400} >
+                <ScatterChart
+                margin={{
+                  top: 20, right: 20, bottom: 20, left: 20,
+                }}
+                >
+                <CartesianGrid />
+                <XAxis type="category" dataKey="city" name="city" label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
+                <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                <Scatter name="" data={data} fill="#8884d8" />
+                </ScatterChart>
+              </ResponsiveContainer>
+              }
+              <Button onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"}</Button>
+            </Col>
+          </Row>
+
+          {/* <Row>
+            <Col className='data-vis-wrapper'>
              <ResponsiveContainer height={400} >
                 <ScatterChart
                 margin={{
@@ -128,7 +161,7 @@ getData = () => {
                 </ScatterChart>
               </ResponsiveContainer>
             </Col>
-          </Row>
+          </Row> */}
 
           <Row>
             <Col> 

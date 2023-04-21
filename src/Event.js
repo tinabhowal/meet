@@ -30,7 +30,7 @@ class Event extends Component {
         {event.summary.toLowerCase().match(/angular(js)?/) && <img src={angularjs} alt="angular js icon"></img>}
         {event.summary.toLowerCase().includes('jquery') && <img src={jquery} alt="j query icon"></img>}
           <Card.Text>
-            <strong>Start:</strong> {event.start.dateTime}
+            <strong>Start:</strong> {new Date(event.start.dateTime).toLocaleString('en-GB')}
             <br />
             <strong>Location:</strong> {event.location}
           </Card.Text>
