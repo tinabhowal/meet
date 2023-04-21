@@ -25,7 +25,7 @@ class Event extends Component {
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
         <Card.Body>
         {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
-        {event.summary.toLowerCase().includes('JavaScript') && <img src={javascript} alt="javascript icon"></img>}
+        {event.summary.match(/java(script)?/i) && <img src={javascript} alt="javascript icon"></img>}
         {event.summary.toLowerCase().match(/node(js)?/) && <img src={nodejs} alt="node.js icon"></img>}
         {event.summary.toLowerCase().match(/angular(js)?/) && <img src={angularjs} alt="angular js icon"></img>}
         {event.summary.toLowerCase().includes('jquery') && <img src={jquery} alt="j query icon"></img>}
