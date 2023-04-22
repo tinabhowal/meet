@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/meet/static/css/main.949d0eed.css",
-    "main.js": "/meet/static/js/main.3fef9506.js",
+    "main.css": "/meet/static/css/main.03377fa6.css",
+    "main.js": "/meet/static/js/main.82297388.js",
     "static/js/787.4b564826.chunk.js": "/meet/static/js/787.4b564826.chunk.js",
-    "static/media/Desktop - 5.png": "/meet/static/media/Desktop - 5.5eecbbbf6523708a911f.png",
-    "static/media/app background.png": "/meet/static/media/app background.bc53ae9acbd8b6ba864c.png",
+    "static/media/Desktop - 5.png": "/meet/static/media/Desktop - 5.e96e0ef4102357350e54.png",
+    "static/media/app background.png": "/meet/static/media/app background.16494e6f09a6cb72ab4d.png",
     "service-worker.js": "/meet/service-worker.js",
     "static/media/man.png": "/meet/static/media/man.da973aa620eefc2f92dc.png",
     "static/media/boxes.png": "/meet/static/media/boxes.95ae5dec548686745ed1.png",
     "index.html": "/meet/index.html",
-    "main.949d0eed.css.map": "/meet/static/css/main.949d0eed.css.map",
-    "main.3fef9506.js.map": "/meet/static/js/main.3fef9506.js.map",
+    "main.03377fa6.css.map": "/meet/static/css/main.03377fa6.css.map",
+    "main.82297388.js.map": "/meet/static/js/main.82297388.js.map",
     "787.4b564826.chunk.js.map": "/meet/static/js/787.4b564826.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.949d0eed.css",
-    "static/js/main.3fef9506.js"
+    "static/css/main.03377fa6.css",
+    "static/js/main.82297388.js"
   ]
 }
