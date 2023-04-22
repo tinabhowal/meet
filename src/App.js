@@ -114,11 +114,13 @@ toggleChartType = () => {
     return (
       <div className="App"  style={{ padding: "0", margin: "0" }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
-        <Container>
-          <Row>
-            <Col>
+        <Container fluid>
+          <Row className='head' >
+            <Col className='d-flex justify-content-start align-items-center'>
               <h1>Meet App</h1>
               {/* <h4>Choose your nearest city</h4> */}
+              </Col>
+              <Col className='d-flex justify-content-end align-items-center'>
               <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents} />
             </Col>
           </Row>
@@ -137,7 +139,7 @@ toggleChartType = () => {
               this.state.chartType === "EventGenre"?
               <EventGenre events={this.state.events} />
               :
-              <ResponsiveContainer height={400} >
+              <ResponsiveContainer height={400}>
                 <ScatterChart
                 margin={{
                   top: 20, right: 20, bottom: 20, left: 20,
@@ -171,7 +173,7 @@ toggleChartType = () => {
 
           <Row>
             <Col>   
-              <NumberOfEvents   numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
+              <NumberOfEvents  numEvents={this.state.numEvents} updateNumEvents={this.updateNumEvents} />
             </Col> 
           </Row>
           </Container>

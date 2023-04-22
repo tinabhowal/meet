@@ -55,7 +55,7 @@ class CitySearch extends Component {
       }
 
       handleImageClicked = () => {
-        this.setState({ showSuggestions: true });
+        this.setState(prevState => ({ showSuggestions: !prevState.showSuggestions }));
       }
 
   render() {
