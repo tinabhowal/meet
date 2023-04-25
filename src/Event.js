@@ -27,9 +27,9 @@ class Event extends Component {
 
     return (
      <div>
-    <Card key={event.id} className="my-3" style={{ margin:"4px", border:"none", boxShadow: "0px 20px 26px 6px rgba(0, 0, 0, 0.25)"}}>
+    <Card key={event.id} className="my-3" style={{margin:"4px", border:"none", boxShadow: "0px 20px 26px 6px rgba(0, 0, 0, 0.25)"}}>
         <Card.Header className="bg-primary text-white">{event.summary}</Card.Header>
-        <Card.Body>
+        <Card.Body style={{minHeight: "203px"}}>
         {event.summary.includes('React') && <img src={react} alt="react icon"></img>}
         {event.summary.match(/java(script)?/i) && <img src={javascript} alt="javascript icon"></img>}
         {event.summary.toLowerCase().match(/node(js)?/) && <img src={nodejs} alt="node.js icon"></img>}
