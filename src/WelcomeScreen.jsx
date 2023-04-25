@@ -14,9 +14,7 @@ return props.showWelcomeScreen ?
 </div>
 <h1 className="h1">Welcome to the Meet app</h1>
 <h4 className="h4">
-Log in to see upcoming events around the world for
-full-stack
-developers
+Sign in with Google to see upcoming events for full-stack developers
 </h4>
 <div className="button_cont" align="center">
 <div class="google-btn">
@@ -40,6 +38,7 @@ class="btn-text"
 <a
 href="https://tinabhowal.github.io/meet/privacy.html"
 rel="nofollow noopener"
+className="a"
 >
 Privacy policy
 </a>

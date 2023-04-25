@@ -57,12 +57,16 @@ class CitySearch extends Component {
       handleImageClicked = () => {
         this.setState(prevState => ({ showSuggestions: !prevState.showSuggestions }));
       }
+      
+      
 
   render() {
     return (
       <div className="CitySearch"  ref={node => this.node = node}>
-        <InfoAlert text={this.state.infoText} />
+        {/* <InfoAlert text={this.state.infoText} /> */}
+        
         <div className='search-container'>
+        <div className='search-flex'>
         <img
            src={search}
            alt="Search"
@@ -79,6 +83,8 @@ class CitySearch extends Component {
             onFocus={() => { this.setState({ showSuggestions: true }) }}
             style={{ textAlign:"center"}}
         />
+        </div>
+        <InfoAlert text={this.state.infoText} />
         </div>
       <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
       {this.state.suggestions.map((suggestion) => (

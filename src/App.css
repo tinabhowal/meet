@@ -1,17 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=M+PLUS+1+Code:wght@100;200;300;400;500;600;700&family=Montserrat+Subrayada:wght@400;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,600;1,700;1,800&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Roboto&display=swap');
 
-/* body{
-  animation: fade-in 2s ease-in-out forwards;
-} */
+body{
+  font-family: 'PT Sans', sans-serif;
+  color:#494949;
+}
+
 
 .App {
   text-align: center;
-  /* padding: 2% 5%; */
+ 
   background-image: url(./app\ background.png);
   padding: 0;
   margin: 0;
   background-size: cover;
-  color: rgba(240, 248, 255, 0.728);
+  background-color: aliceblue;
   
 }
 
@@ -22,9 +25,10 @@
 ul {
   padding: 0;
   list-style: none;
+  
 }
 
-p {
+p{
   margin: 5px 0;
 }
 
@@ -37,7 +41,7 @@ p {
 
 input[type="text"],
 input[type="number"] {
-  padding: 8px 6px 8px 10px;
+  padding: 8px 6px 8px 6px;
   border-radius: 4px;
   outline: none;
   border: 1px solid #ccc;
@@ -50,26 +54,40 @@ input[type="number"] {
 }
 
 
-
 /* .city {
   width: 250px;
-  animation: fade-in 2s forwards;
-} */
+  
+}  */
 
 .search-container{
   position: relative;
-  /* top: 10px;
-  right: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.search-icon{
+ .search-flex{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+
+.search-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  transform: translateX(-50%);
+  top: 16px;
+  left: 0px;
+  transform: translateX(80%);
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
+  z-index: 999;
+  animation: fade-in 2s forwards;
+ 
 }
+
+
 
 .city{
   width: 0;
@@ -79,41 +97,51 @@ input[type="number"] {
   outline: none;
   transition: all 0.3s ease-in-out;
   margin: 0;
-  
+  z-index: 1;
 }
+
 
 .city.show-suggestions {
   opacity: 1;
-  width: 250px;
+  /* width: 250px; */
+  width: 200px;
   padding: 20px;
   border: 1px solid #ccc;
-  margin: 2px;
+  font-size: 12px;
+  /* margin: 2px; */
 }
 
 .CitySearch {
   display: flex;
   flex-direction: column;
-  flex-basis: 300px;
-  max-width: 300px;
+  /* flex-basis: 300px; */
+  /* max-width: 300px; */
+  width: 250px;
   /* margin: auto; */
   position: relative;
-  margin: 0;
+  margin-bottom: -30px;
   padding: 0.5rem;
+  align-items: center;
+  margin-right: -30px;
+  top: 4px;
   
 }
 
 
 
 .suggestions {
-  width: 250px;
+  /* width: 250px; */
+  width: 200px;
   position: absolute;
-  z-index: 2;
   align-self: center;
-  margin: 0;
-  top: 43px;
+  /* margin-top: 0px; */
+  /* margin-top: 40px; */
+  top: 60px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
+
+
 
 .suggestions > li {
   text-align: left;
@@ -121,6 +149,7 @@ input[type="number"] {
   background-color: #eee;
   cursor: default;
   color: #494949;
+  
 }
 
 .suggestions > li:last-child {
@@ -139,6 +168,11 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+}
+
+.event-description{
+color:#6d6b6b;
+font-size: 14px;
 }
 
 .details-btn {
@@ -184,25 +218,24 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
-  position: fixed;
-  top: 20px;
-}
 
 .data-vis-wrapper {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  
+  align-items: center; 
 }
+
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
   display: flex;
-  
 }
+
+
+/* 
 .recharts-surface {
-  overflow: visible;
-}
+  overflow: visible; 
+  translate: -4%;
+} */
 
 
 
@@ -264,6 +297,8 @@ input[type="number"] {
   .data-vis-wrapper {
     flex-direction: row;
   }
+
+
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
     max-width: 50%;
@@ -273,19 +308,22 @@ input[type="number"] {
   }
 }
 
-h1{
-  color: rgba(240, 248, 255, 0.728);
-  margin: 0;
-  padding: 0.5rem;
-  font-size: 4rem;
-  text-shadow: 0px 1px 2px rgba(255, 243, 243, 0.957);
+
+.app-icon{
   animation: fade-in 2s forwards;
+  padding: 0;
+  margin: 0;
+  width:230px;
+  height:110x;
 }
 
+
+
+
 h6{
-  color: rgba(240, 248, 255, 0.728);
+  color: rgba(78, 78, 78, 0.728);
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
-  animation: fade-in 2s forwards;
+  
 }
 
 @keyframes slide-in {
@@ -300,10 +338,117 @@ h6{
 }
 
 .head{
-  background: #151618;
+  background: #000000;
   box-shadow: 0px 16px 42px 13px rgba(0, 0, 0, 0.32);
   background-size: cover;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   padding: 1rem;
   border: none;
+  
 }
+
+a{
+  color:#4285f4;
+}
+
+@media only screen and (max-width: 390px) {
+  .app-icon{
+    width: 100px;
+    height: 50px;
+  }
+
+  p{
+    font-size: 10px;
+  }
+
+  .CitySearch{
+    width: 100px;
+    margin: 0px -30px -30px 0px;
+    padding: 8px;
+  }
+
+  /* .search-icon{
+    width: 24px;
+  } */
+
+  
+  .suggestions{
+    width: 80px;
+  }
+
+  .search-icon{
+    width: 16px;
+    height: 16px;
+    margin: 1px;
+  }
+
+  .city.show-suggestions {
+    width: 80px;
+    font-size: 12px;
+    padding: 10px;
+    margin:14px;
+  }
+
+  .suggestions>li{
+    font-size: 12px;
+    padding: 6px 4px 6px 4px;
+  }
+
+}
+
+
+@media only screen and (min-width: 391px) and (max-width: 650px) {
+  .app-icon{
+    width: 190px;
+  }
+  
+  p{
+    font-size: 16px;
+  }
+
+
+  .CitySearch{
+    width: 200px;
+    margin: 0px -30px -30px 0px;
+    padding: 8px;
+  }
+
+  .city.show-suggestions {
+    width: 150px;
+  }
+
+  .suggestions{
+    width: 150px; 
+  }
+
+  .search-icon{
+    height:24px;
+    width:24px;
+  }
+
+}
+
+@media only screen and (min-width: 391px) and (max-width: 460px) {
+  .col-app-icon {
+    width: 50%;
+  }
+  
+  .col-city-search {
+    width: 50%;
+    /* margin: 0px -30px -30px 0px;
+    padding: 8px; */
+  }
+}
+
+@media only screen and (min-width: 990px) {
+  .chart-button {
+    position: absolute;
+    top: 29rem;
+    right: 18%;
+    /* margin-top: 20px;
+    margin-right: 20px; */
+    margin: 20px;
+  }
+}
+
+

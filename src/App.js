@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './nprogress.css';
+import meetIcon from './meet-icon.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';
@@ -115,21 +116,21 @@ toggleChartType = () => {
       <div className="App"  style={{ padding: "0", margin: "0" }}>
         {this.state.offline && <WarningAlert text="Your network connection is offline." />}
         <Container fluid>
-          <Row className='head' >
-            <Col className='d-flex justify-content-start align-items-center'>
-              <h1>Meet App</h1>
+          <Row className='head d-flex justify-content-space-between align-items-center' >
+            <Col className='d-flex justify-content-start align-items-center col-app-icon'>
               {/* <h4>Choose your nearest city</h4> */}
+                 <img className='app-icon' src={meetIcon} alt='app icon'></img>
               </Col>
-              <Col className='d-flex justify-content-end align-items-center'>
+              <Col className='d-flex justify-content-end align-items-center col-city-search'>
               <CitySearch locations={this.state.locations} updateEvents = {this.updateEvents} />
             </Col>
           </Row>
 
-          <Row>
+          {/* <Row>
             <Col style={{textAlign:"center"}}>
               <h6>Events in each city</h6>
             </Col>
-          </Row>
+          </Row> */}
 
           <Row>  
             <Col className='data-vis-wrapper'>
@@ -139,18 +140,20 @@ toggleChartType = () => {
               this.state.chartType === "EventGenre"?
               <EventGenre events={this.state.events} />
               :
+              
               <ResponsiveContainer height={400}>
                 <ScatterChart
                 margin={{
                   top: 20, right: 20, bottom: 20, left: 20,
                 }}
                 
+                style={{ transform: 'translate(-5%)' }}
                 >
                 <CartesianGrid />
                 <XAxis type="category" dataKey="city" name="city" label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
                 <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} label={{ fontSize: 12 }} tick={{ fontSize: 10 }}  />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="" data={data} fill="#8884d8" />
+                <Scatter name="Events in each city" data={data} fill="#8884d8" />
                 </ScatterChart>
               </ResponsiveContainer>
               }
@@ -158,8 +161,8 @@ toggleChartType = () => {
           </Row>
 
           <Row>
-           <Col>
-             <Button onClick={this.toggleChartType} style={{marginBottom:"1rem"}}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"} </Button>
+           <Col className='button-col'>
+             <Button className='chart-button' onClick={this.toggleChartType}>{this.state.chartType === "EventGenre" ? "ScatterChart" : "EventGenre"} </Button>
            </Col>
           </Row>
 
@@ -178,10 +181,10 @@ toggleChartType = () => {
           </Row>
           </Container>
           
-            <div style={{padding:'0', margin:'0'}}>
+            {/* <div style={{padding:'0', margin:'0'}}>
             <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => { getAccessToken() }}  />
-            </div>
+            </div> */}
       </div>
     );
   }
